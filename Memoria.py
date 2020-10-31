@@ -1,17 +1,22 @@
 # A00826973 Ingrid Giselle Paz Ramírez
 # A00827533 Leo Abraham Puente Rangel
-# Fecha de entrega: 30/10/2020
-
+# Fecha de entrega: 30/10/202
 from random import *
 from turtle import *
 from freegames import path
 
 car = path('car.gif')
+#Imagen
 tiles = list(range(32)) * 2
+#Número de parejas 
 state = {'mark': None}
 hide = [True] * 64
+#Esconder la imagen
+count = 0
+
 
 def square(x, y):
+    #Dobuja el tablero
     "Draw white square with black outline at (x, y)."
     up()
     goto(x, y)
@@ -24,24 +29,29 @@ def square(x, y):
     end_fill()
 
 def index(x, y):
+    #Indice de las fichas
     "Convert (x, y) coordinates to tiles index."
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
 
 def xy(count):
+    #Coordenadas de las fichas
     "Convert tiles count to (x, y) coordinates."
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 def tap(x, y):
+    
     "Update mark and hidden tiles based on tap."
     spot = index(x, y)
     mark = state['mark']
 
-    if mark is None or mark == spot or tiles[mark] != tiles[spot]:
-        state['mark'] = spot
-    else:
-        hide[spot] = False
-        hide[mark] = False
-        state['mark'] = None
+    #if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+        #state['mark'] = spot
+       
+    #else:
+        #hide[spot] = False
+        #hide[mark] = False
+        #state['mark'] = None
+        
 
 def draw():
     "Draw image and tiles."
@@ -54,6 +64,7 @@ def draw():
         if hide[count]:
             x, y = xy(count)
             square(x, y)
+            
 
     mark = state['mark']
 
@@ -74,4 +85,4 @@ hideturtle()
 tracer(False)
 onscreenclick(tap)
 draw()
-done()
+done
