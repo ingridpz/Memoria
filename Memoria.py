@@ -62,7 +62,7 @@ def tap(x, y):
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
 <<<<<<< HEAD
-        #state['mark'] = spot
+        state['mark'] = spot
        
 =======
         state['mark'] = spot
@@ -71,12 +71,13 @@ def tap(x, y):
         
 >>>>>>> Contar-taps
     else:
-        #hide[spot] = False
-        #hide[mark] = False
-        #state['mark'] = None
+        hide[spot] = False
+        hide[mark] = False
+        state['mark'] = None
         
 
 def draw():
+    #Muestra la imagen 
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -92,6 +93,7 @@ def draw():
     mark = state['mark']
 
     if mark is not None and hide[mark]:
+        #Escribe los números
         x, y = xy(mark)
         up()
         goto(x + 2, y)
