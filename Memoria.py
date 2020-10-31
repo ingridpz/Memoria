@@ -21,9 +21,13 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 #Indica el estado de las fichas
 hide = [True] * 64
+<<<<<<< HEAD
 #Esconder la imagen
 count = 0
 #Puntaje
+=======
+taps = 0
+>>>>>>> Contar-taps
 
 def square(x, y):
     #Dobuja el tablero
@@ -52,19 +56,27 @@ def tap(x, y):
     
     "Update mark and hidden tiles based on tap."
     spot = index(x, y)
+    global taps
+    
     mark = state['mark']
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
-        state['mark'] = spot
+<<<<<<< HEAD
+        #state['mark'] = spot
        
+=======
+        state['mark'] = spot
+        taps = taps + 1
+        print("Total de clicks: ", taps)
+        
+>>>>>>> Contar-taps
     else:
-        hide[spot] = False
-        hide[mark] = False
-        state['mark'] = None
+        #hide[spot] = False
+        #hide[mark] = False
+        #state['mark'] = None
         
 
 def draw():
-    #Muestra la imagen 
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -80,7 +92,6 @@ def draw():
     mark = state['mark']
 
     if mark is not None and hide[mark]:
-        #Escribe los números
         x, y = xy(mark)
         up()
         goto(x + 2, y)
