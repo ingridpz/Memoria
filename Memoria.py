@@ -55,15 +55,16 @@ def tap(x, y):
     mark = state['mark']
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
-        #state['mark'] = spot
+        state['mark'] = spot
        
     else:
-        #hide[spot] = False
-        #hide[mark] = False
-        #state['mark'] = None
+        hide[spot] = False
+        hide[mark] = False
+        state['mark'] = None
         
 
 def draw():
+    #Muestra la imagen 
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -79,6 +80,7 @@ def draw():
     mark = state['mark']
 
     if mark is not None and hide[mark]:
+        #Escribe los números
         x, y = xy(mark)
         up()
         goto(x + 2, y)
