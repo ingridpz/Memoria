@@ -8,12 +8,22 @@ from freegames import path
 car = path('car.gif')
 #Imagen
 tiles = list(range(32)) * 2
-#Número de parejas 
+#Número de parejas
+#Si se desea utilizar letras en vez de números
+#def letras(inicio, fin):
+#     for x in xrange(ord(inicio), ord(fin)):
+#          yield chr(x)
+#tiles2 = []
+#for a in letras('a', 'x'):
+#      tiles2 = tiles2 + a
+#La lista llega hasta x para que el tablero sea cuadrado
+#el tablero será más pequeño.
 state = {'mark': None}
+#Indica el estado de las fichas
 hide = [True] * 64
 #Esconder la imagen
 count = 0
-
+#Puntaje
 
 def square(x, y):
     #Dobuja el tablero
@@ -44,10 +54,10 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
 
-    #if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+    if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         #state['mark'] = spot
        
-    #else:
+    else:
         #hide[spot] = False
         #hide[mark] = False
         #state['mark'] = None
